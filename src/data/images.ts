@@ -3,7 +3,6 @@
  * Replace with files in /public/images (and local imports) for production
  * — see README → "Replacing images".
  */
-const G = "https://lh3.googleusercontent.com/aida-public/";
 
 export const IMAGES = {
   hero: "/images/places/hero-img.jpg",
@@ -16,4 +15,5 @@ export const IMAGES = {
   suv: "/images/cars/suv.png",
   minibus: "/images/cars/minibus.png",
   coach: "/images/cars/coach.png",
+  logo: "/images/logo.png",
 } as const;
