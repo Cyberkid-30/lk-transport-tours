@@ -1,8 +1,8 @@
 "use client";
 
-import { Flame, Pause, Play } from "lucide-react";
+import { Flame } from "lucide-react";
 import { motion, useInView } from "motion/react";
-import { useRef, useState, type ReactNode } from "react";
+import { useRef, type ReactNode } from "react";
 import type { SpiceLevel } from "@/data/content";
 
 /* -------------------------------------------------------------------------- */
@@ -21,22 +21,20 @@ interface MarqueeProps {
 }
 
 /**
- * Infinite horizontal ticker. Runs on the compositor (CSS transform), pauses
- * when off-screen, on hover/focus, or via the toggle (WCAG 2.2.2). Under
- * reduced motion it becomes a static, wrapped list.
+ * Infinite horizontal ticker. Runs on the compositor (CSS transform) and
+ * pauses when off-screen, on hover, or while keyboard focus is inside it.
+ * Under reduced motion it becomes a static, wrapped list.
  */
 export function Marquee({ children, label, duration = 40, reverse = false, className = "" }: MarqueeProps) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { margin: "100px" });
-  const [paused, setPaused] = useState(false);
-  const running = inView && !paused;
 
   return (
     <div ref={ref} className={`group/marquee relative ${className}`}>
       <div className="overflow-hidden motion-safe:[mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
         <div
           className={`flex w-max animate-marquee motion-reduce:w-full motion-reduce:animate-none group-hover/marquee:[animation-play-state:paused] group-focus-within/marquee:[animation-play-state:paused] ${
-            running ? "" : "[animation-play-state:paused]"
+            inView ? "" : "[animation-play-state:paused]"
           }`}
           style={{ animationDuration: `${duration}s`, animationDirection: reverse ? "reverse" : "normal" }}
         >
@@ -48,15 +46,6 @@ export function Marquee({ children, label, duration = 40, reverse = false, class
           </ul>
         </div>
       </div>
-
-      <button
-        type="button"
-        onClick={() => setPaused((p) => !p)}
-        aria-label={paused ? "Play scrolling list" : "Pause scrolling list"}
-        className="absolute right-0 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-surface-container-lowest text-secondary shadow-md transition-colors hover:bg-secondary hover:text-on-secondary motion-reduce:hidden"
-      >
-        {paused ? <Play size={14} aria-hidden /> : <Pause size={14} aria-hidden />}
-      </button>
     </div>
   );
 }

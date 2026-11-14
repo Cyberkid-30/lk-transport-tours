@@ -369,24 +369,29 @@ export const DISHES: Dish[] = [
   },
 ];
 
-/** Extra dishes surfaced in the scrolling ticker. */
-export const MORE_DISHES = [
-  "Kenkey & Fried Fish",
-  "Chichinga Kebabs",
-  "Tuo Zaafi",
-  "Groundnut Soup",
-  "Kontomire Stew",
-  "Ampesi",
-  "Bofrot",
-  "Fried Yam & Pepper",
-  "Omo Tuo",
-  "Sobolo",
-  "Asana",
-  "Brukina",
-  "Lamugin",
-  "Palm wine",
-  "Tigernut Drink",
-] as const;
+export interface TickerItem {
+  name: string;
+  kind: "food" | "drink";
+}
+
+/** Extra dishes and local drinks surfaced in the scrolling ticker. */
+export const MORE_DISHES: TickerItem[] = [
+  { name: "Kenkey & Fried Fish", kind: "food" },
+  { name: "Chichinga Kebabs", kind: "food" },
+  { name: "Tuo Zaafi", kind: "food" },
+  { name: "Groundnut Soup", kind: "food" },
+  { name: "Kontomire Stew", kind: "food" },
+  { name: "Ampesi", kind: "food" },
+  { name: "Bofrot", kind: "food" },
+  { name: "Fried Yam & Pepper", kind: "food" },
+  { name: "Omo Tuo", kind: "food" },
+  { name: "Sobolo", kind: "drink" },
+  { name: "Asana", kind: "drink" },
+  { name: "Brukina", kind: "drink" },
+  { name: "Lamugin", kind: "drink" },
+  { name: "Palm wine", kind: "drink" },
+  { name: "Tigernut Drink", kind: "drink" },
+];
 
 /* ---------- Nightlife ---------- */
 export interface NightExperience {

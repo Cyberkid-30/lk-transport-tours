@@ -1,4 +1,4 @@
-import { Phone, UtensilsCrossed } from "lucide-react";
+import { CupSoda, Phone, UtensilsCrossed } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Marquee, SpiceMeter } from "@/components/ui/effects";
 import { WhatsAppIcon } from "@/components/ui/icons";
@@ -118,20 +118,23 @@ export function Cuisine() {
         />
 
         <Reveal className="mt-10 md:mt-12" y={16} delay={0.1}>
-          <Marquee label="More Ghanaian dishes to discover" duration={45}>
-            {MORE_DISHES.map((name) => (
-              <li
-                key={name}
-                className="inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full bg-surface-container-lowest px-5 py-2.5 font-label text-label-md text-on-surface shadow-sm"
-              >
-                <UtensilsCrossed
-                  size={16}
-                  className="text-secondary"
-                  aria-hidden
-                />
-                {name}
-              </li>
-            ))}
+          <Marquee label="More Ghanaian dishes and local drinks to discover" duration={45}>
+            {MORE_DISHES.map((item) => {
+              const Icon = item.kind === "drink" ? CupSoda : UtensilsCrossed;
+              return (
+                <li
+                  key={item.name}
+                  className="inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full bg-surface-container-lowest px-5 py-2.5 font-label text-label-md text-on-surface shadow-sm"
+                >
+                  <Icon
+                    size={16}
+                    className="text-secondary"
+                    aria-hidden
+                  />
+                  {item.name}
+                </li>
+              );
+            })}
           </Marquee>
         </Reveal>
 
