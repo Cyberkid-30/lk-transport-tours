@@ -2,6 +2,7 @@ import { Phone } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { SafeImage } from "@/components/ui/SafeImage";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Stagger, StaggerItem } from "@/components/ui/motion";
 import { VEHICLES, type Vehicle } from "@/data/content";
 import { PRIMARY_PHONE } from "@/lib/site";
 
@@ -80,11 +81,13 @@ export function Fleet() {
           title="Vehicles Available for Rent"
           description="Clean, comfortable, and well-maintained vehicles for private hire, family vacations, business travel, and group excursions. Contact us directly for daily and trip-based rental rates."
         />
-        <div className="mt-12 grid grid-cols-1 gap-6 md:mt-16 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+        <Stagger className="mt-12 grid grid-cols-1 gap-6 md:mt-16 md:grid-cols-2 lg:grid-cols-4 lg:gap-8" amount={0.1}>
           {VEHICLES.map((v) => (
-            <VehicleCard key={v.id} vehicle={v} />
+            <StaggerItem key={v.id} y={32}>
+              <VehicleCard vehicle={v} />
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   );

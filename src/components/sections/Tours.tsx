@@ -2,6 +2,7 @@ import { CircleCheck, Phone } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { SafeImage } from "@/components/ui/SafeImage";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Stagger, StaggerItem } from "@/components/ui/motion";
 import { TOURS, type TourPackage } from "@/data/content";
 import { PRIMARY_PHONE } from "@/lib/site";
 
@@ -81,10 +82,14 @@ export function Tours() {
           title="Featured Tour Packages Across Ghana"
           description="Embark on comprehensive, thoughtfully paced excursions highlighting the architectural wonders, coastal sanctuaries, natural rainforests, and historic bastions that define Ghana."
         />
-        <div id="destinations" className="mt-12 scroll-mt-20 space-y-8 md:mt-16 md:space-y-12">
-          {TOURS.map((tour) => (
-            <TourCard key={tour.id} tour={tour} />
-          ))}
+        <div id="destinations" className="scroll-mt-20">
+            <Stagger className="mt-12 space-y-8 md:mt-16 md:space-y-12" amount={0.1}>
+              {TOURS.map((tour) => (
+                <StaggerItem key={tour.id} y={32}>
+                  <TourCard tour={tour} />
+                </StaggerItem>
+              ))}
+            </Stagger>
         </div>
       </div>
     </section>

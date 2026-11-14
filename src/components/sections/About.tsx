@@ -1,4 +1,5 @@
 import { BadgeCheck } from "lucide-react";
+import { Reveal, Stagger, StaggerItem } from "@/components/ui/motion";
 import { SafeImage } from "@/components/ui/SafeImage";
 import { ABOUT_PILLARS } from "@/data/content";
 import { IMAGES } from "@/data/images";
@@ -8,7 +9,7 @@ export function About() {
     <section id="about" aria-labelledby="about-title" className="scroll-mt-16 bg-surface-bright py-16 md:scroll-mt-20 md:py-24">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-12">
         <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-12 lg:gap-16">
-          <div className="relative min-w-0 lg:col-span-6">
+          <Reveal x={-24} className="relative min-w-0 lg:col-span-6">
             <div className="relative overflow-hidden rounded-2xl bg-surface-container shadow-2xl">
               <SafeImage
                 src={IMAGES.accra}
@@ -38,9 +39,9 @@ export function About() {
                 <p className="font-label text-label-md font-bold">Trusted Ghanaian Tourism &amp; Travel Partner</p>
               </div>
             </div>
-          </div>
+          </Reveal>
 
-          <div className="min-w-0 space-y-6 lg:col-span-6">
+          <Reveal x={24} className="min-w-0 space-y-6 lg:col-span-6">
             <span className="inline-block rounded-full bg-secondary-fixed px-3 py-1 font-label text-label-sm font-semibold uppercase tracking-wider text-on-secondary-fixed">
               About Our Company
             </span>
@@ -59,18 +60,18 @@ export function About() {
               professional local insight.
             </p>
 
-            <ul className="grid grid-cols-1 gap-4 pt-4 sm:grid-cols-2">
+            <Stagger as="ul" className="grid grid-cols-1 gap-4 pt-4 sm:grid-cols-2" amount={0.25}>
               {ABOUT_PILLARS.map(({ icon: Icon, title, text }) => (
-                <li key={title} className="flex items-start gap-3 rounded-xl bg-surface-container-low p-4">
+                <StaggerItem as="li" key={title} className="flex items-start gap-3 rounded-xl bg-surface-container-low p-4" y={16}>
                   <Icon size={22} className="mt-0.5 shrink-0 text-secondary" aria-hidden />
                   <div>
                     <h3 className="font-label text-label-md font-semibold text-on-surface">{title}</h3>
                     <p className="mt-0.5 text-body-sm text-on-surface-variant">{text}</p>
                   </div>
-                </li>
+                </StaggerItem>
               ))}
-            </ul>
-          </div>
+            </Stagger>
+          </Reveal>
         </div>
       </div>
     </section>

@@ -3,6 +3,7 @@
 import { Menu, Phone, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Logo } from "@/components/ui/Logo";
+import { Reveal } from "@/components/ui/motion";
 import { NAV_ITEMS } from "@/data/content";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { PRIMARY_PHONE } from "@/lib/site";
@@ -50,22 +51,24 @@ export function Header() {
           <Logo />
         </div>
 
-        <nav aria-label="Primary" className="hidden items-center gap-6 xl:flex">
-          {NAV_ITEMS.map((item) => {
-            const isActive = item.section === active && item.label !== "Destinations";
-            return (
-              <a
-                key={item.label}
-                href={item.href}
-                aria-current={isActive ? "page" : undefined}
-                className={`font-label text-label-md transition-colors hover:text-secondary ${
-                  isActive ? "font-bold text-secondary" : "text-on-surface-variant"
-                }`}
-              >
-                {item.label}
-              </a>
-            );
-          })}
+        <nav aria-label="Primary">
+          <Reveal mode="mount" y={-8} className="hidden items-center gap-6 xl:flex">
+            {NAV_ITEMS.map((item) => {
+              const isActive = item.section === active && item.label !== "Destinations";
+              return (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  aria-current={isActive ? "page" : undefined}
+                  className={`font-label text-label-md transition-colors hover:text-secondary ${
+                    isActive ? "font-bold text-secondary" : "text-on-surface-variant"
+                  }`}
+                >
+                  {item.label}
+                </a>
+              );
+            })}
+          </Reveal>
         </nav>
 
         <a

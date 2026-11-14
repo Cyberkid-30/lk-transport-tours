@@ -1,5 +1,6 @@
 import { Clock, Phone } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { Reveal } from "@/components/ui/motion";
 import { WhatsAppIcon } from "@/components/ui/icons";
 import { SafeImage } from "@/components/ui/SafeImage";
 import { IMAGES } from "@/data/images";
@@ -13,7 +14,7 @@ export function CallToAction() {
         <div className="absolute inset-0 bg-primary-container/90" />
       </div>
 
-      <div className="relative mx-auto max-w-5xl space-y-8 px-5 text-center sm:px-6 lg:px-12">
+      <Reveal className="relative mx-auto max-w-5xl space-y-8 px-5 text-center sm:px-6 lg:px-12" y={32}>
         <span className="inline-block rounded-full bg-secondary-fixed/20 px-3 py-1 font-label text-label-sm font-semibold uppercase tracking-wider text-secondary-fixed">
           Connect With Our Desk
         </span>
@@ -48,7 +49,7 @@ export function CallToAction() {
             Dispatch Available: {SITE.hours.map((h) => `${h.days}: ${h.time}`).join("  |  ")}
           </span>
         </p>
-      </div>
+      </Reveal>
     </section>
   );
 }

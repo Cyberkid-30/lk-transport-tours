@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "@fontsource-variable/plus-jakarta-sans";
 import "@fontsource-variable/inter";
 import "./globals.css";
+import { MotionProvider } from "@/components/MotionProvider";
 import { SITE } from "@/lib/site";
 
 export const viewport: Viewport = {
@@ -51,7 +52,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en-GH">
-      <body>{children}</body>
+      <body>
+        <MotionProvider>{children}</MotionProvider>
+      </body>
     </html>
   );
 }

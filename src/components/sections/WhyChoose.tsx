@@ -1,4 +1,5 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Stagger, StaggerItem } from "@/components/ui/motion";
 import { WHY_US } from "@/data/content";
 
 export function WhyChoose() {
@@ -11,20 +12,20 @@ export function WhyChoose() {
           title="Why Choose LK Transport & Tours"
           description="We combine punctuality, thorough maintenance protocols, and genuine hospitality to guarantee seamless road travel anywhere across Ghana."
         />
-        <ul className="mt-12 grid grid-cols-1 gap-4 md:mt-16 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
+        <Stagger as="ul" className="mt-12 grid grid-cols-1 gap-4 md:mt-16 md:grid-cols-2 md:gap-8 lg:grid-cols-3" amount={0.15}>
           {WHY_US.map(({ icon: Icon, title, text }) => (
-            <li
+            <StaggerItem as="li"
               key={title}
-              className="space-y-4 rounded-2xl bg-surface-container-low p-6 transition-colors hover:bg-surface-container md:p-8"
+              className="space-y-4 rounded-2xl bg-surface-container-low p-6 transition-colors hover:bg-surface-container md:p-8" y={20}
             >
               <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-secondary text-on-secondary shadow-lg shadow-secondary/20">
                 <Icon size={28} aria-hidden />
               </div>
               <h3 className="text-headline-sm text-on-surface">{title}</h3>
               <p className="leading-relaxed text-on-surface-variant">{text}</p>
-            </li>
+            </StaggerItem>
           ))}
-        </ul>
+        </Stagger>
       </div>
     </section>
   );

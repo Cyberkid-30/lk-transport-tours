@@ -2,6 +2,7 @@ import { Clock, Info, Mail, MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { SOCIAL_ICONS, WhatsAppIcon } from "@/components/ui/icons";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Reveal, Stagger, StaggerItem } from "@/components/ui/motion";
 import { PRIMARY_PHONE, SITE } from "@/lib/site";
 
 const iconTile = "flex h-12 w-12 items-center justify-center rounded-xl bg-secondary/10 text-secondary";
@@ -23,8 +24,8 @@ export function Contact() {
           description="For rapid quotes and availability, please call our telephone desk directly. We do not require complex online booking forms or advance card payments."
         />
 
-        <div className="mt-12 grid grid-cols-1 gap-6 md:mt-16 md:grid-cols-2 lg:grid-cols-4">
-          <div className={card}>
+        <Stagger className="mt-12 grid grid-cols-1 gap-6 md:mt-16 md:grid-cols-2 lg:grid-cols-4" amount={0.12}>
+          <StaggerItem className={card} y={24}>
             <div className="space-y-4">
               <div className={iconTile}><Phone size={26} aria-hidden /></div>
               <div>
@@ -42,9 +43,9 @@ export function Contact() {
                 </a>
               ))}
             </div>
-          </div>
+          </StaggerItem>
 
-          <div className={card}>
+          <StaggerItem className={card} y={24}>
             <div className="space-y-4">
               <div className={iconTile}><Mail size={26} aria-hidden /></div>
               <div>
@@ -61,9 +62,9 @@ export function Contact() {
               </a>
               <span className="mt-1 block text-body-sm text-on-surface-variant">Responses within 2 business hours</span>
             </div>
-          </div>
+          </StaggerItem>
 
-          <div className={card}>
+          <StaggerItem className={card} y={24}>
             <div className="space-y-4">
               <div className={iconTile}><MapPin size={26} aria-hidden /></div>
               <div>
@@ -79,9 +80,9 @@ export function Contact() {
               <span className="block font-label text-label-sm font-bold uppercase text-secondary">Coverage</span>
               <span className="text-body-sm text-on-surface">Nationwide Ghana Cross-Country</span>
             </div>
-          </div>
+          </StaggerItem>
 
-          <div className={card}>
+          <StaggerItem className={card} y={24}>
             <div className="space-y-4">
               <div className={iconTile}><Clock size={26} aria-hidden /></div>
               <div>
@@ -114,10 +115,10 @@ export function Contact() {
                 );
               })}
             </div>
-          </div>
-        </div>
+          </StaggerItem>
+        </Stagger>
 
-        <div className="mt-10 flex flex-col items-start justify-between gap-6 rounded-2xl bg-surface-bright p-6 shadow-sm sm:flex-row sm:items-center md:mt-12">
+        <Reveal className="mt-10 flex flex-col items-start justify-between gap-6 rounded-2xl bg-surface-bright p-6 shadow-sm sm:flex-row sm:items-center md:mt-12" y={24}>
           <div className="flex items-start gap-4 sm:items-center">
             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-secondary-fixed text-secondary">
               <Info size={24} aria-hidden />
@@ -133,7 +134,7 @@ export function Contact() {
           <Button href={PRIMARY_PHONE.href} icon={<Phone size={18} aria-hidden />} className="w-full shrink-0 rounded-full sm:w-auto">
             Speak With Us Now
           </Button>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

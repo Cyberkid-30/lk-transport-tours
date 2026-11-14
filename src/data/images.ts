@@ -11,7 +11,7 @@ export const IMAGES = {
   capeCoast: "/images/places/cape-coast.jpg",
   ada: "/images/places/ada.jpg",
   aburi: "/images/places/aburi.jpg",
-  akosombo: "/images/places/akosombo.jpg",
+  akosombo: "/images/places/volta.jpg",
   sedan: "/images/cars/sedan.png",
   suv: "/images/cars/suv.png",
   minibus: "/images/cars/minibus.png",

@@ -1,5 +1,6 @@
 import { ChevronRight, Clock, Mail, MapPin, Phone } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
+import { Reveal } from "@/components/ui/motion";
 import { SOCIAL_ICONS, WhatsAppIcon } from "@/components/ui/icons";
 import { NAV_ITEMS } from "@/data/content";
 import { PRIMARY_PHONE, SITE } from "@/lib/site";
@@ -13,7 +14,7 @@ export function Footer() {
 
   return (
     <footer className="bg-primary-container pb-24 pt-16 text-on-primary-container md:pb-12">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 border-b border-outline-variant/20 px-5 pb-12 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-12">
+      <Reveal className="mx-auto grid max-w-7xl grid-cols-1 gap-10 border-b border-outline-variant/20 px-5 pb-12 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-12" y={24}>
         <div className="space-y-4">
           <Logo inverted />
           <p className="text-body-sm leading-relaxed">
@@ -97,7 +98,7 @@ export function Footer() {
             {SITE.emergencyNote}
           </p>
         </div>
-      </div>
+      </Reveal>
 
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-5 pt-8 text-body-sm sm:px-6 md:flex-row lg:px-12">
         <p>© {year} {SITE.name} Ghana. All rights reserved.</p>
