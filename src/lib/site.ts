@@ -30,7 +30,10 @@ export const SITE = {
   /** Leave `href` empty to hide a profile until the real URL is available. */
   socials: [
     { label: "Facebook", href: "" },
-    { label: "Instagram", href: "" },
+    {
+      label: "Instagram",
+      href: "https://www.instagram.com/lk__tours?srtk=MTJ2Y2lsc2loNWl5cg==",
+    },
     { label: "TikTok", href: "" },
   ],
 } as const;
