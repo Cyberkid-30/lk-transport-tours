@@ -32,6 +32,11 @@ export const metadata: Metadata = {
     "bus charter Ghana",
   ],
   alternates: { canonical: "/" },
+  icons: {
+    icon: [{ url: "/images/logo.png", type: "image/png" }],
+    shortcut: "/images/logo.png",
+    apple: "/images/logo.png",
+  },
   openGraph: {
     type: "website",
     locale: "en_GH",
@@ -49,7 +54,9 @@ export const metadata: Metadata = {
   formatDetection: { telephone: true, email: true, address: true },
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en-GH">
       <body>
