@@ -1,3 +1,7 @@
+"use client";
+
+import { Reveal } from "@/components/ui/motion";
+
 interface SectionHeadingProps {
   eyebrow: string;
   title: string;
@@ -18,7 +22,7 @@ export function SectionHeading({
 }: SectionHeadingProps) {
   const centered = align === "center";
   return (
-    <div className={`space-y-4 ${centered ? "mx-auto max-w-3xl text-center" : ""}`}>
+    <Reveal className={`space-y-4 ${centered ? "mx-auto max-w-3xl text-center" : ""}`} y={24} amount={0.3}>
       <span
         className={`inline-block rounded-full px-3.5 py-1.5 font-label text-label-sm font-bold uppercase tracking-wider ${
           tone === "dark"
@@ -39,6 +43,6 @@ export function SectionHeading({
       {description && (
         <p className="text-body-md leading-relaxed text-on-surface-variant">{description}</p>
       )}
-    </div>
+    </Reveal>
   );
 }
