@@ -5,9 +5,11 @@ import { Header } from "@/components/layout/Header";
 import { About } from "@/components/sections/About";
 import { CallToAction } from "@/components/sections/CallToAction";
 import { Contact } from "@/components/sections/Contact";
+import { Cuisine } from "@/components/sections/Cuisine";
 import { Fleet } from "@/components/sections/Fleet";
 import { Hero } from "@/components/sections/Hero";
 import { Moments } from "@/components/sections/Moments";
+import { Nightlife } from "@/components/sections/Nightlife";
 import { Tours } from "@/components/sections/Tours";
 import { WhyChoose } from "@/components/sections/WhyChoose";
 
@@ -26,6 +28,11 @@ export default function HomePage() {
         <About />
         <Tours />
         <Moments />
+        {/* Wrapper gives the "Food & Nightlife" nav link one anchor + active state for both sections */}
+        <div id="experiences" className="scroll-mt-16 md:scroll-mt-20">
+          <Cuisine />
+          <Nightlife />
+        </div>
         <Fleet />
         <WhyChoose />
         <CallToAction />

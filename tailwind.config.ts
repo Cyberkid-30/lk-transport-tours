@@ -89,6 +89,16 @@ const config: Config = {
       },
       boxShadow: {
         cta: "0 10px 25px -3px rgba(29,99,216,0.25)",
+        glow: "0 0 48px -12px rgba(48,111,228,0.6)",
+      },
+      keyframes: {
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-50%)" },
+        },
+      },
+      animation: {
+        marquee: "marquee 40s linear infinite",
       },
     },
   },

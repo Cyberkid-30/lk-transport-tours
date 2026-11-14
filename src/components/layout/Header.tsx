@@ -8,7 +8,8 @@ import { NAV_ITEMS } from "@/data/content";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { PRIMARY_PHONE } from "@/lib/site";
 
-const SECTION_IDS = ["home", "about", "tours", "vehicles", "contact"] as const;
+/** Derived from the nav so new sections are tracked automatically. */
+const SECTION_IDS = Array.from(new Set(NAV_ITEMS.map((item) => item.section)));
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -54,7 +55,7 @@ export function Header() {
         <nav aria-label="Primary">
           <Reveal mode="mount" y={-8} className="hidden items-center gap-6 xl:flex">
             {NAV_ITEMS.map((item) => {
-              const isActive = item.section === active && item.label !== "Destinations";
+              const isActive = item.section === active;
               return (
                 <a
                   key={item.label}

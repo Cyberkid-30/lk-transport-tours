@@ -41,7 +41,13 @@ export function SectionHeading({
         {title}
       </h2>
       {description && (
-        <p className="text-body-md leading-relaxed text-on-surface-variant">{description}</p>
+        <p
+          className={`text-body-md leading-relaxed ${
+            tone === "dark" ? "text-primary-fixed-dim" : "text-on-surface-variant"
+          }`}
+        >
+          {description}
+        </p>
       )}
     </Reveal>
   );

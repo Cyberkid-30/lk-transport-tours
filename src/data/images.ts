@@ -16,4 +16,10 @@ export const IMAGES = {
   minibus: "/images/cars/minibus.png",
   coach: "/images/cars/coach.png",
   logo: "/images/logo.png",
+  banku: "/images/foods/banku.jpg",
+  fufu: "/images/foods/fufu.jpg",
+  jollof: "/images/foods/jollof.jpg",
+  kelewele: "/images/foods/kelewele.jpg",
+  beans: "/images/foods/red-red.jpg",
+  waakye: "/images/foods/waakye.jpg",
 } as const;

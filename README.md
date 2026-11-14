@@ -68,6 +68,8 @@ src/
 │   │   ├── About.tsx            # Company intro + pillars
 │   │   ├── Tours.tsx            # 5 tour package cards
 │   │   ├── Moments.tsx          # Travel experience highlights
+│   │   ├── Cuisine.tsx          # Ghanaian dishes + food-tour CTA
+│   │   ├── Nightlife.tsx        # Nightlife experiences + safe night rides
 │   │   ├── Fleet.tsx            # 4 vehicle rental cards
 │   │   ├── WhyChoose.tsx        # 6-point value proposition
 │   │   ├── CallToAction.tsx     # Final conversion prompt
@@ -78,7 +80,8 @@ src/
 │   │   ├── SafeImage.tsx        # next/image with gradient fallback
 │   │   ├── SectionHeading.tsx   # Reusable section header
 │   │   ├── icons.tsx            # Inline SVG icons (WhatsApp, FB, IG, TikTok)
-│   │   └── motion.tsx           # Animation primitives (Reveal, Stagger, StaggerItem)
+│   │   ├── motion.tsx           # Animation primitives (Reveal, Stagger, StaggerItem)
+│   │   └── effects.tsx          # Marquee, GlowOrbs, Equalizer, SpiceMeter
 │   ├── MotionProvider.tsx       # Global motion config (reduced-motion support)
 │   └── JsonLd.tsx               # JSON-LD structured data (TravelAgency + LocalBusiness)
 │

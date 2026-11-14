@@ -1,5 +1,5 @@
 import { SITE } from "@/lib/site";
-import { TOURS, VEHICLES } from "@/data/content";
+import { DISHES, NIGHTLIFE, TOURS, VEHICLES } from "@/data/content";
 
 /** Structured data: TravelAgency / LocalBusiness with offers for rich results. */
 export function JsonLd() {
@@ -32,6 +32,22 @@ export function JsonLd() {
           "@type": "Offer",
           itemOffered: { "@type": "TouristTrip", name: t.title, description: t.description },
         })),
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "TouristTrip",
+            name: "Guided Ghanaian Food Tour",
+            description: `Chop-bar and street-food tasting through Accra featuring ${DISHES.map((d) => d.name).join(", ")}.`,
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Nightlife chauffeur service",
+            description: `Private chauffeured nights out in Accra: ${NIGHTLIFE.map((n) => n.title).join(", ")}.`,
+          },
+        },
         ...VEHICLES.map((v) => ({
           "@type": "Offer",
           itemOffered: { "@type": "Service", name: `${v.name} rental`, description: v.description },

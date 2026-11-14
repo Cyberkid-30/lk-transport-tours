@@ -26,6 +26,20 @@ import {
   MoveVertical,
   Plane,
   Car,
+  Banana,
+  Bean,
+  CarFront,
+  CookingPot,
+  Disc3,
+  Fish,
+  Flame,
+  Guitar,
+  Martini,
+  MoonStar,
+  Soup,
+  TreePalm,
+  UtensilsCrossed,
+  Wine,
 } from "lucide-react";
 import { IMAGES } from "./images";
 
@@ -41,7 +55,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "Home", href: "#home", section: "home" },
   { label: "About Us", href: "#about", section: "about" },
   { label: "Tour Packages", href: "#tours", section: "tours" },
-  { label: "Destinations", href: "#destinations", section: "tours" },
+  { label: "Food & Nightlife", href: "#experiences", section: "experiences" },
   { label: "Vehicle Rentals", href: "#vehicles", section: "vehicles" },
   { label: "Contact Us", href: "#contact", section: "contact" },
 ];
@@ -50,7 +64,12 @@ export const NAV_ITEMS: NavItem[] = [
 export const TAB_ITEMS = [
   { label: "Home", href: "#home", section: "home", icon: "home" },
   { label: "Tours", href: "#tours", section: "tours", icon: "tours" },
-  { label: "Vehicles", href: "#vehicles", section: "vehicles", icon: "vehicles" },
+  {
+    label: "Vehicles",
+    href: "#vehicles",
+    section: "vehicles",
+    icon: "vehicles",
+  },
   { label: "About", href: "#about", section: "about", icon: "about" },
   { label: "Contact", href: "#contact", section: "contact", icon: "contact" },
 ] as const;
@@ -71,10 +90,26 @@ export interface Feature {
 }
 
 export const ABOUT_PILLARS: Feature[] = [
-  { icon: Route, title: "Personalized Planning", text: "Itineraries mapped strictly to your schedule." },
-  { icon: ShieldCheck, title: "Maintained Fleet", text: "Rigorous inspections before every dispatch." },
-  { icon: Map, title: "Local Expert Chauffeurs", text: "Deep cultural knowledge and regional routes." },
-  { icon: Headset, title: "Direct Voice Support", text: "Rapid coordination via telephone at any hour." },
+  {
+    icon: Route,
+    title: "Personalized Planning",
+    text: "Itineraries mapped strictly to your schedule.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Maintained Fleet",
+    text: "Rigorous inspections before every dispatch.",
+  },
+  {
+    icon: Map,
+    title: "Local Expert Chauffeurs",
+    text: "Deep cultural knowledge and regional routes.",
+  },
+  {
+    icon: Headset,
+    title: "Direct Voice Support",
+    text: "Rapid coordination via telephone at any hour.",
+  },
 ];
 
 /* ---------- Tour packages ---------- */
@@ -208,11 +243,241 @@ export const TOURS: TourPackage[] = [
 
 /* ---------- Travel moments ---------- */
 export const MOMENTS: Feature[] = [
-  { icon: PartyPopper, title: "Cultural Festivals", text: "Witness traditional durbars, Homowo, Chale Wote, and festive celebrations across chieftaincy grounds." },
-  { icon: Umbrella, title: "Sandy Coastlines", text: "Unwind along Kokrobite, Busua, and Prampram sandy beaches lined with coconut groves." },
-  { icon: Palette, title: "Artisan Craft Hubs", text: "Collect hand-woven Kente cloth, bead jewelry, and authentic woodwork direct from Ghanaian makers." },
-  { icon: Trees, title: "Canopy Walkways", text: "Suspension bridges high within tropical rainforests offering safe, breathtaking canopy walks." },
-  { icon: Ship, title: "River Cruises", text: "Leisurely pontoon excursions along the Volta river enjoying live music and sunset horizons." },
+  {
+    icon: PartyPopper,
+    title: "Cultural Festivals",
+    text: "Witness traditional durbars, Homowo, Chale Wote, and festive celebrations across chieftaincy grounds.",
+  },
+  {
+    icon: Umbrella,
+    title: "Sandy Coastlines",
+    text: "Unwind along Kokrobite, Busua, and Prampram sandy beaches lined with coconut groves.",
+  },
+  {
+    icon: Palette,
+    title: "Artisan Craft Hubs",
+    text: "Collect hand-woven Kente cloth, bead jewelry, and authentic woodwork direct from Ghanaian makers.",
+  },
+  {
+    icon: Trees,
+    title: "Canopy Walkways",
+    text: "Suspension bridges high within tropical rainforests offering safe, breathtaking canopy walks.",
+  },
+  {
+    icon: Ship,
+    title: "River Cruises",
+    text: "Leisurely pontoon excursions along the Volta river enjoying live music and sunset horizons.",
+  },
+];
+
+/* ---------- Ghanaian cuisine ---------- */
+export type SpiceLevel = 1 | 2 | 3;
+
+export interface Dish {
+  id: string;
+  name: string;
+  /** Phonetic hint for visitors unfamiliar with the name. */
+  pronunciation?: string;
+  icon: LucideIcon;
+  /** Optional photo in /public/images/food — a branded illustrated tile is shown when omitted. */
+  image?: string;
+  imageAlt?: string;
+  tag: string;
+  origin: string;
+  description: string;
+  pairing: string;
+  spice: SpiceLevel;
+}
+
+export const DISHES: Dish[] = [
+  {
+    id: "jollof",
+    name: "Jollof Rice",
+    pronunciation: "JOL-off",
+    icon: CookingPot,
+    image: IMAGES.jollof,
+    tag: "Signature Dish",
+    origin: "Nationwide Favourite",
+    description:
+      "Smoky, tomato-rich rice slow-cooked with peppers, onions and aromatic spices — the dish at the heart of West Africa's friendliest rivalry.",
+    pairing: "Grilled chicken, fried plantain & shito",
+    spice: 2,
+  },
+  {
+    id: "waakye",
+    name: "Waakye",
+    pronunciation: "WAA-chay",
+    icon: UtensilsCrossed,
+    image: IMAGES.waakye,
+    tag: "Breakfast Classic",
+    origin: "Northern Roots, Loved in Accra",
+    description:
+      "Rice and beans cooked with dried sorghum leaves for its signature deep colour, served street-side with a generous spread of sides.",
+    pairing: "Gari, spaghetti, boiled egg, wele & shito",
+    spice: 2,
+  },
+  {
+    id: "banku-tilapia",
+    name: "Banku & Grilled Tilapia",
+    pronunciation: "BAN-koo",
+    icon: Fish,
+    image: IMAGES.banku,
+    tag: "Coastal Favourite",
+    origin: "Ga & Ewe Coastline",
+    description:
+      "Soft, gently tangy fermented corn and cassava dough paired with whole charcoal-grilled tilapia and fiery fresh-ground pepper.",
+    pairing: "Fresh pepper with onions & tomatoes",
+    spice: 3,
+  },
+  {
+    id: "fufu",
+    name: "Fufu & Light Soup",
+    pronunciation: "FOO-foo",
+    icon: Soup,
+    image: IMAGES.fufu,
+    tag: "Hearty Tradition",
+    origin: "Ashanti Heritage",
+    description:
+      "Pounded cassava and plantain, smooth and stretchy, served in a spicy tomato light soup — traditionally enjoyed by hand.",
+    pairing: "Goat meat, fish or palm-nut soup",
+    spice: 2,
+  },
+  {
+    id: "kelewele",
+    name: "Kelewele",
+    pronunciation: "KEH-leh-WEH-leh",
+    icon: Banana,
+    image: IMAGES.kelewele,
+    tag: "Street Snack",
+    origin: "Accra Night Markets",
+    description:
+      "Ripe plantain cubes tossed in ginger, chilli and spice, then fried until caramelised — Accra's favourite evening snack.",
+    pairing: "Roasted groundnuts",
+    spice: 2,
+  },
+  {
+    id: "red-red",
+    name: "Red Red",
+    icon: Bean,
+    image: IMAGES.beans,
+    tag: "Vegetarian Friendly",
+    origin: "Home-Style Comfort",
+    description:
+      "Black-eyed bean stew simmered in red palm oil and crowned with sweet fried plantain — wholesome, vibrant and plant-based.",
+    pairing: "Gari & fried ripe plantain",
+    spice: 1,
+  },
+];
+
+/** Extra dishes surfaced in the scrolling ticker. */
+export const MORE_DISHES = [
+  "Kenkey & Fried Fish",
+  "Chichinga Kebabs",
+  "Tuo Zaafi",
+  "Groundnut Soup",
+  "Kontomire Stew",
+  "Ampesi",
+  "Bofrot",
+  "Fried Yam & Pepper",
+  "Omo Tuo",
+  "Sobolo",
+  "Asana",
+  "Brukina",
+  "Lamugin",
+  "Palm wine",
+  "Tigernut Drink",
+] as const;
+
+/* ---------- Nightlife ---------- */
+export interface NightExperience {
+  id: string;
+  icon: LucideIcon;
+  title: string;
+  area: string;
+  time: string;
+  description: string;
+  vibes: [string, string];
+}
+
+export const NIGHTLIFE: NightExperience[] = [
+  {
+    id: "osu-strip",
+    icon: Martini,
+    title: "Osu Night Strip",
+    area: "Oxford Street, Osu",
+    time: "From 8 PM",
+    description:
+      "Oxford Street comes alive after dark with open-air bars, sidewalk grills, live DJs and a crowd that keeps the energy high until the early hours.",
+    vibes: ["Bar Hopping", "Street Food"],
+  },
+  {
+    id: "highlife-jazz",
+    icon: Guitar,
+    title: "Live Highlife & Jazz",
+    area: "Osu & Labone",
+    time: "From 9 PM",
+    description:
+      "Soulful evenings with live bands playing Highlife, Afro-jazz and palm-wine classics — the timeless soundtrack of Ghana.",
+    vibes: ["Live Bands", "Laid-Back"],
+  },
+  {
+    id: "rooftops",
+    icon: Wine,
+    title: "Rooftop Lounges",
+    area: "Airport City & Cantonments",
+    time: "Sunset Onwards",
+    description:
+      "Sleek sky-high terraces with handcrafted cocktails, skyline views and smooth Afrobeats — perfect for celebrations and date nights.",
+    vibes: ["Cocktails", "City Views"],
+  },
+  {
+    id: "beach-parties",
+    icon: TreePalm,
+    title: "Beachfront Parties",
+    area: "Labadi & Kokrobite",
+    time: "Weekends, Late",
+    description:
+      "Bonfires, drumming circles and DJ sets right on the sand, with the Atlantic breeze keeping the dance floor cool.",
+    vibes: ["Beach Vibes", "Drumming"],
+  },
+  {
+    id: "clubs",
+    icon: Disc3,
+    title: "Afrobeats & Amapiano Clubs",
+    area: "East Legon & Osu",
+    time: "From 11 PM",
+    description:
+      "Ghana's hottest dance floors pulsing with Afrobeats, Amapiano and Azonto — where the party rarely ends before sunrise.",
+    vibes: ["Dancing", "Top DJs"],
+  },
+  {
+    id: "night-markets",
+    icon: Flame,
+    title: "Night Food Markets",
+    area: "Across Accra",
+    time: "From 7 PM",
+    description:
+      "Smoky chichinga kebabs, hot kelewele and chilled sobolo from roadside stalls — Accra's late-night flavours at their best.",
+    vibes: ["Street Eats", "Local Favourite"],
+  },
+];
+
+export const NIGHT_RIDE_PERKS: Feature[] = [
+  {
+    icon: ShieldCheck,
+    title: "Vetted Chauffeurs",
+    text: "Licensed, sober drivers who know the city after dark.",
+  },
+  {
+    icon: MoonStar,
+    title: "On Standby All Night",
+    text: "Your driver waits nearby until you're ready to leave.",
+  },
+  {
+    icon: CarFront,
+    title: "Door-to-Door Return",
+    text: "Hotel or residence pickup and a safe drop-off.",
+  },
 ];
 
 /* ---------- Fleet ---------- */
@@ -242,7 +507,8 @@ export const VEHICLES: Vehicle[] = [
     example: "e.g. Toyota Camry / Equivalent",
     image: IMAGES.sedan,
     imageAlt: "Silver executive sedan parked in front of an upscale hotel",
-    description: "Ideal for corporate meetings, diplomat transfers, and comfortable private commutes in and around Accra.",
+    description:
+      "Ideal for corporate meetings, diplomat transfers, and comfortable private commutes in and around Accra.",
     specs: [
       { icon: Users, label: "4 Passengers" },
       { icon: Snowflake, label: "Climate Control" },
@@ -258,7 +524,8 @@ export const VEHICLES: Vehicle[] = [
     example: "e.g. Toyota Land Cruiser Prado / V8",
     image: IMAGES.suv,
     imageAlt: "White luxury 4x4 SUV on a coastal road",
-    description: "Built for executive dignity and rugged comfort across long-distance regional tours and all-weather terrain.",
+    description:
+      "Built for executive dignity and rugged comfort across long-distance regional tours and all-weather terrain.",
     specs: [
       { icon: Users, label: "7 Passengers" },
       { icon: Mountain, label: "4WD All-Terrain" },
@@ -274,7 +541,8 @@ export const VEHICLES: Vehicle[] = [
     example: "e.g. Toyota HiAce High-Roof",
     image: IMAGES.minibus,
     imageAlt: "White Toyota HiAce passenger minibus",
-    description: "Perfect for extended family vacations, medium-sized tourist groups, university delegations, and airport shuttles.",
+    description:
+      "Perfect for extended family vacations, medium-sized tourist groups, university delegations, and airport shuttles.",
     specs: [
       { icon: Users, label: "14-15 Seats" },
       { icon: Wind, label: "Dual A/C Vents" },
@@ -290,7 +558,8 @@ export const VEHICLES: Vehicle[] = [
     example: "Executive 30-33 Passenger Coach",
     image: IMAGES.coach,
     imageAlt: "Luxury tour coach travelling on a highway",
-    description: "Dedicated luxury transport for large corporate retreats, church missions, school tours, and nationwide expeditions.",
+    description:
+      "Dedicated luxury transport for large corporate retreats, church missions, school tours, and nationwide expeditions.",
     specs: [
       { icon: Users, label: "30-33 Seats" },
       { icon: Eye, label: "Panoramic Glass" },
@@ -302,11 +571,34 @@ export const VEHICLES: Vehicle[] = [
 
 /* ---------- Why choose us ---------- */
 export const WHY_US: Feature[] = [
-  { icon: Plane, title: "Convenient Transportation", text: "Doorstep hotel and residential pickups, Kotoka International Airport (ACC) direct terminal meets, and completely flexible routing." },
-  { icon: Armchair, title: "Superior Comfort", text: "Every vehicle in our inventory is fully air-conditioned, immaculately detailed before departure, and fitted with ergonomic seating." },
-  { icon: CalendarClock, title: "Tailored Tour Itineraries", text: "No rushed tourist traps. We pace stops according to your preferences, allowing you time to photograph, explore, and converse." },
-  { icon: Landmark, title: "Rich Cultural Discovery", text: "Experience genuine connection with local traditional custodians, Ghanaian folklore, craft artisans, and authentic food spots." },
-  { icon: Headset, title: "Dedicated Customer Support", text: "Direct telephonic assistance before, during, and after your trip. Real human coordinators ready to adjust plans immediately." },
-  { icon: Car, title: "Diverse Rental Options", text: "Versatile fleet options spanning compact saloons and rugged 4x4 SUVs to high-capacity 33-seater air-conditioned luxury tour coaches." },
+  {
+    icon: Plane,
+    title: "Convenient Transportation",
+    text: "Doorstep hotel and residential pickups, Kotoka International Airport (ACC) direct terminal meets, and completely flexible routing.",
+  },
+  {
+    icon: Armchair,
+    title: "Superior Comfort",
+    text: "Every vehicle in our inventory is fully air-conditioned, immaculately detailed before departure, and fitted with ergonomic seating.",
+  },
+  {
+    icon: CalendarClock,
+    title: "Tailored Tour Itineraries",
+    text: "No rushed tourist traps. We pace stops according to your preferences, allowing you time to photograph, explore, and converse.",
+  },
+  {
+    icon: Landmark,
+    title: "Rich Cultural Discovery",
+    text: "Experience genuine connection with local traditional custodians, Ghanaian folklore, craft artisans, and authentic food spots.",
+  },
+  {
+    icon: Headset,
+    title: "Dedicated Customer Support",
+    text: "Direct telephonic assistance before, during, and after your trip. Real human coordinators ready to adjust plans immediately.",
+  },
+  {
+    icon: Car,
+    title: "Diverse Rental Options",
+    text: "Versatile fleet options spanning compact saloons and rugged 4x4 SUVs to high-capacity 33-seater air-conditioned luxury tour coaches.",
+  },
 ];
-

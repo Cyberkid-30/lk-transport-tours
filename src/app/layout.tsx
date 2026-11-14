@@ -30,6 +30,10 @@ export const metadata: Metadata = {
     "car rental Accra",
     "airport pickup Accra",
     "bus charter Ghana",
+    "Ghanaian food tour",
+    "Accra street food",
+    "Accra nightlife",
+    "Osu nightlife",
   ],
   alternates: { canonical: "/" },
   icons: {
