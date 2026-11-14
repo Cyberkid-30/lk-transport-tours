@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       { protocol: "https", hostname: "lh3.googleusercontent.com" },
     ],
+    qualities: [50, 70, 75],
   },
   async headers() {
     return [
