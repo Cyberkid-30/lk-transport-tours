@@ -10,13 +10,13 @@ export const SITE = {
     "Guided tour packages to Ghana's most iconic destinations and premium vehicle rentals — sedans, 4x4 SUVs, minibuses and luxury coaches — with direct telephone support.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.lktransporttours.com",
   phones: [
-    { display: "+233 24 000 0000", href: "tel:+233240000000" },
-    { display: "+233 20 000 0000", href: "tel:+233200000000" },
+    { display: "+233 55 846 0654", href: "tel:+233558460654" },
+    { display: "+233 27 413 9405", href: "tel:+233274139405" },
   ],
-  whatsapp: "https://wa.me/233240000000",
-  email: "enquiries@lktransporttours.com",
+  whatsapp: "https://wa.me/233558460654",
+  email: "lexfordkruz@gmail.com",
   address: {
-    street: "Airport Residential Area",
+    street: "North Kaneshie",
     city: "Accra",
     region: "Greater Accra Region",
     country: "GH",
@@ -32,7 +32,7 @@ export const SITE = {
     { label: "Facebook", href: "" },
     {
       label: "Instagram",
-      href: "https://www.instagram.com/lk__tours?srtk=MTJ2Y2lsc2loNWl5cg==",
+      href: "https://www.instagram.com/lk__tours/",
     },
     { label: "TikTok", href: "" },
   ],
