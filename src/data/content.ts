@@ -215,7 +215,7 @@ export const TOURS: TourPackage[] = [
       "Colonial Governor's Hill Sanatorium",
     ],
     metaLabel: "Transit Time",
-    meta: "50 Minutes from Central Accra",
+    meta: "Approximately 50 minutes to 1 hour from Accra",
   },
   {
     id: "akosombo",
@@ -579,7 +579,7 @@ export const WHY_US: Feature[] = [
   {
     icon: Plane,
     title: "Convenient Transportation",
-    text: "Doorstep hotel and residential pickups, Kotoka International Airport (ACC) direct terminal meets, and completely flexible routing.",
+    text: "Doorstep hotel and residential pickups, Accra International Airport (AIA) direct terminal meets, and completely flexible routing.",
   },
   {
     icon: Armchair,

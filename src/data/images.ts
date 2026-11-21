@@ -9,7 +9,7 @@ export const IMAGES = {
   accra: "/images/places/accra.jpg",
   capeCoast: "/images/places/cape-coast.jpg",
   ada: "/images/places/ada.jpg",
-  aburi: "/images/places/aburi.jpg",
+  aburi: "/images/places/aburi-gardens.jpg",
   akosombo: "/images/places/akosombo-1.jpg",
   sedan: "/images/cars/sedan.png",
   suv: "/images/cars/suv.png",

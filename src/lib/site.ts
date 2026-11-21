@@ -3,9 +3,9 @@
  * Update these values once and the whole site (UI, SEO, JSON-LD) follows.
  */
 export const SITE = {
-  name: "LK Transport & Tours",
-  shortName: "LK Transport",
-  tagline: "Tours Ghana",
+  name: "Lexford Kruz Transport & Tours",
+  shortName: "Lexford Kruz",
+  tagline: "Transport & Tours",
   description:
     "Guided tour packages to Ghana's most iconic destinations and premium vehicle rentals — sedans, 4x4 SUVs, minibuses and luxury coaches — with direct telephone support.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.lktransporttours.com",
