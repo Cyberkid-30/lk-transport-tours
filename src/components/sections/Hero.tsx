@@ -60,10 +60,10 @@ export function Hero() {
 
         <Reveal mode="mount" y={-12} delay={0.3} className="mb-10 max-w-2xl">
           <p className="text-body-md leading-relaxed text-on-primary-container md:text-body-lg">
-            LK Transport &amp; Tours offers bespoke guided tour packages to
-            Ghana&apos;s most breathtaking destinations alongside premium
-            vehicle rental solutions tailored for individuals, families, and
-            corporate travellers.
+            Lexford Kruz Transport &amp; Tours offers bespoke guided tour
+            packages to Ghana&apos;s most breathtaking destinations alongside
+            premium vehicle rental solutions tailored for individuals, families,
+            and corporate travellers.
           </p>
         </Reveal>
 
